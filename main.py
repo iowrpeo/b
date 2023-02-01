@@ -93,7 +93,7 @@ if not os.path.exists("./comics"):
     os.mkdir('./comics')
 if not os.path.exists("./zips"):
     os.mkdir('./zips')
-zip_file("./comics", "./zips")
+#zip_file("./comics", "./zips")
 
 print(os.listdir("."))
 print(os.listdir("./zips"))
