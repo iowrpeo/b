@@ -22,7 +22,9 @@ jobs:
           pip install requests
       - name: main logic
         run: |
+          git add ./download.txt
           git checkout main
+          git add ./download.txt
       # push代码保留本次的下载结果
       - name: commit & push
         uses: actions-go/push@master
