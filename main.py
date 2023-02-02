@@ -63,6 +63,9 @@ def download_comic(comic):
     f = open('./downloaded.txt', 'ab')
     f.write((str(cid) + '\n').encode())
     f.close()
+    f = open('./downloaded1.txt', 'ab')
+    f.write((str(cid) + '\n').encode())
+    f.close()
     if(len(epl)>2):
         print(epl)
         plst = sorted(os.listdir(path))
