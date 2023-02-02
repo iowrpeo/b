@@ -1,4 +1,4 @@
-name: pica_crawler
+name: test
 
 on:
   workflow_dispatch:
@@ -23,6 +23,7 @@ jobs:
         uses: actions-go/push@master
         with:
           ref: refs/heads/default
+          remote-ref: refs/heads/default
       - uses: actions/checkout@v3
         with:
           ref: main
