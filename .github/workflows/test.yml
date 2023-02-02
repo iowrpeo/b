@@ -30,7 +30,7 @@ jobs:
           clean: false
       - name: main logic
         run: |
-          git add test1.txt
+          git add test2.txt
       - name: commit & push
         uses: actions-go/push@master
         with:
