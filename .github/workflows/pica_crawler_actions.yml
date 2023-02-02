@@ -65,6 +65,7 @@ jobs:
           clean: false
       - name: log
         run: |
+          python main.py
           git add downloaded.txt
           git add ./zips
       - name: commit & push
