@@ -36,3 +36,4 @@ jobs:
         with:
           ref: refs/heads/main
           remote-ref: refs/heads/main
+          force: true
