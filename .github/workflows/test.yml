@@ -7,6 +7,9 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: default
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
@@ -14,16 +17,3 @@ jobs:
         run: |
           python a.py
           git add test1.txt
-          git add test2.txt
-          git checkout main
-          git add test1.txt
-      # push代码保留本次的下载结果
-      - name: commit & push
-        uses: actions-go/push@master
-        with:
-          # 提交代码时配置的git邮箱
-          author-email: 'qifengatru@163.com'
-          # 提交代码时配置的提交人姓名
-          author-name: 'GitHub Actions'
-          commit-message: 'update downloaded comics'
-          token: ${{ secrets.GIT_TOKEN }}
