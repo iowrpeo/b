@@ -65,11 +65,15 @@ jobs:
           clean: false
       - name: log
         run: |
-          python main.py
           git add downloaded.txt
           git add ./zips
       - name: commit & push
         uses: actions-go/push@master
         with:
+          author-email: 'qifengatru@163.com'
+          # 提交代码时配置的提交人姓名
+          author-name: 'GitHub Actions'
+          commit-message: 'update downloaded comics'
+          token: ${{ secrets.GIT_TOKEN }}
           ref: refs/heads/main
           remote-ref: refs/heads/main
