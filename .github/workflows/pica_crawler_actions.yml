@@ -59,7 +59,7 @@ jobs:
           token: ${{ secrets.GIT_TOKEN }}
           ref: refs/heads/default
           remote-ref: refs/heads/default
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@main
         with:
           ref: main
           clean: false
