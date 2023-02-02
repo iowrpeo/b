@@ -1,6 +1,8 @@
 name: pica_crawler
 
 on:
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -11,6 +13,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+          ref: default
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
@@ -54,3 +57,17 @@ jobs:
           author-name: 'GitHub Actions'
           commit-message: 'update downloaded comics'
           token: ${{ secrets.GIT_TOKEN }}
+          ref: refs/heads/default
+          remote-ref: refs/heads/default
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+      - name: log
+        run: |
+          git add downloaded.txt
+      - name: commit & push
+        uses: actions-go/push@master
+        with:
+          ref: refs/heads/main
+          remote-ref: refs/heads/main
