@@ -66,6 +66,7 @@ jobs:
       - name: log
         run: |
           git add downloaded.txt
+          git add ./zips
       - name: commit & push
         uses: actions-go/push@master
         with:
