@@ -7,8 +7,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@main
         with:
+          persist-credentials: false
+          fetch-depth: 0
           ref: default
       - uses: actions/setup-python@v4
         with:
@@ -17,3 +19,19 @@ jobs:
         run: |
           python a.py
           git add test1.txt
+      - name: commit & push
+        uses: actions-go/push@master
+        with:
+          ref: refs/heads/default
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+      - name: main logic
+        run: |
+          git add test2.txt
+      - name: commit & push
+        uses: actions-go/push@master
+        with:
+          ref: refs/heads/main
+          remote-ref: refs/heads/main
