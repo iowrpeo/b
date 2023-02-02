@@ -16,9 +16,11 @@ jobs:
           python-version: "3.10"
       - name: main logic
         run: |
-          git add downloaded.txt
+          python a.py
+          git add test1.txt
+          git add test2.txt
           git checkout main
-          git add downloaded.txt
+          git add test1.txt
       # push代码保留本次的下载结果
       - name: commit & push
         uses: actions-go/push@master
