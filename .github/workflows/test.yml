@@ -31,6 +31,9 @@ jobs:
       - name: main logic
         run: |
           git add test2.txt
+      - name: main logic
+        run: |
+          python b.py
       - name: commit & push
         uses: actions-go/push@master
         with:
